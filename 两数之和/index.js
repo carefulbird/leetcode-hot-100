@@ -17,10 +17,12 @@
  */
 var twoSum = function (nums, target) {
   const map = new Map()
+  // 第一步构建 map
   for (let index = 0; index < nums.length; index++) {
     const element = nums[index]
     map.set(element, index)
   }
+  // 第二步遍历，判断 target - el 是否在 map 中
   for (let index = 0; index < nums.length; index++) {
     const restIndex = map.get(target - nums[index])
     if (restIndex && restIndex !== index) {
