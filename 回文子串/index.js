@@ -25,7 +25,7 @@
  */
 /**
  * 第一种暴力求解 ==> 超出时间限制
- * 思路：
+ * 思路：遍历所有的子串，再判断子串是否是回文子串
  */
 var countSubstrings = function (s) {
   let ans = 0
@@ -43,4 +43,29 @@ var countSubstrings = function (s) {
   return ans
 }
 
-var countSubstrings = function (s) {}
+/**
+ * 思路：
+ * 1、遍历每一个元素即每一个中心点
+ * 2、根据中心点向左右两端遍历判断是否是回文
+ * 3、双端遍历的时候 => 偶数中心 + 奇数中心
+ * @param {*} s
+ */
+var countSubstrings = function (s) {
+  const n = s.length
+  let res = 0
+  const extend = (left, right) => {
+    let res = 0
+    while (left >= 0 && right <= n - 1 && s[left] === s[right]) {
+      left--
+      right++
+      res++
+    }
+    return res
+  }
+  for (let index = 0; index < n; index++) {
+    // 中心点奇数从自己开始 + 中心点为偶数从自己和 自己前面元素开始
+    // bab + baab
+    res = res + extend(index, index) + extend(index, index + 1)
+  }
+  return res
+}
