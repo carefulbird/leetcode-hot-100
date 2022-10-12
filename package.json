@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/carefulbird/leetcode-hot-100#readme",
   "devDependencies": {
-    "eslint": "^8.24.0"
+    "eslint": "^8.24.0",
+    "prettier": "^2.7.1"
   }
 }
