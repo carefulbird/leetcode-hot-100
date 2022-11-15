@@ -35,8 +35,8 @@ class DoubleLink {
     this.length += 1;
   }
 
-  delete(value) {
-    const temp = this.head;
+  delete() {
+    // todo
   }
 
   getHead() {
