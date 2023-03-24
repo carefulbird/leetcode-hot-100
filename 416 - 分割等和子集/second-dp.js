@@ -18,7 +18,7 @@ var canPartition = function(nums) {
         sum = sum+nums[i]
     }
     if(sum%2===1){
-        return false
+        return falseß
     }else {
         sum = sum/2
     }
@@ -28,6 +28,9 @@ var canPartition = function(nums) {
     // [1,2,3] 例如 dp[1][3] 表示从 1 和 2 或者 1 或者 2 或者不取 等于 3
     // 显然 dp[1][3] 为 true 所以
     // dp[2][3] 也为 true 
+
+    // fill 方法里面的引用数据类型会填充每一个
+    // 所以创建 二维 dp 的时候注意 引用问题
 
     const dp = new Array(nums.length).fill([]).map(()=>new Array(sum+1).fill(false))
     
