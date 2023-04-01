@@ -23,6 +23,8 @@ var findDisappearedNumbers = function (nums) {
     }
 
 
+
+
     for (let i = 0; i < nums.length; i++) {
 
         if (nums[i] !== 0) {
@@ -30,14 +32,16 @@ var findDisappearedNumbers = function (nums) {
         }
 
     }
-    let res = []
+    let res = [];
+
+    let a;
 
     for (let i = 0; i < nums.length; i++) {
-        
-        if(nums[i]!==0){
-            res.push(i+1)
+
+        if (nums[i] !== 0) {
+            res.push(i + 1)
         }
-        
+
     }
     return res
 
