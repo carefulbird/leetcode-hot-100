@@ -8,8 +8,10 @@
 /**
  * @param {number[]} nums
  * @return {number}
+ * @see https://leetcode.cn/problems/burst-balloons/solutions/337630/zhe-ge-cai-pu-zi-ji-zai-jia-ye-neng-zuo-guan-jian-/?envType=problem-list-v2&envId=2cktkvj
  */
 var maxCoins = function (nums) {
+
     const n = nums.length;
     const dp = Array.from(Array(n + 2), () => Array(n + 2).fill(0));
     nums[-1] = 1;
