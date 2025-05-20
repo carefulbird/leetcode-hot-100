@@ -67,5 +67,25 @@ var mergeKLists = function (lists) {
     }
     return res
 };
+
+
+const promiseAll = (array) => {
+    let count = 0;
+    let n = array.length;
+    const res = Array(n)
+    return new Promise((resolve, reject) => {
+        for (let i = 0; i < n; i++) {
+            Promise.resolve(array[i]).then((state) => {
+                count++;
+                res[i] = state;
+
+                if (count >= n) {
+                    resolve(res)
+                }
+
+            }).catch(reject)
+        }
+    })
+}
 // @lc code=end
 

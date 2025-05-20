@@ -16,33 +16,32 @@
 /**
  * @param {ListNode} head
  * @return {boolean}
+ * @see https://leetcode.cn/problems/linked-list-cycle/solutions/175734/yi-wen-gao-ding-chang-jian-de-lian-biao-wen-ti-h-2/
  */
 var hasCycle = function (head) {
     let fast = head;
     let slow = head;
+    let init = false;
 
-    let init = true
-
-    while ((init || fast !== slow) && fast && slow) {
-        slow = slow.next;
-        fast = fast.next;
-        if (fast) {
-            fast = fast.next
+    while (fast && slow) {
+        if (fast === slow && init) {
+            return true;
         }
-        init = false
+
+        init = true;
+
+        slow = slow.next;
+        let temp = fast.next;
+
+        if (!temp) {
+            return false
+        }
+
+        fast = temp.next;
     }
-    // 快慢指针相遇的时候
-    // 两个指针再一起走
 
-    fast = head;
 
-    while (fast !== slow && fast && slow) {
-        fast = fast.next;
-        slow = slow.next
-    }
-
-    return !!slow
-
+    return false
 };
 // @lc code=end
 
